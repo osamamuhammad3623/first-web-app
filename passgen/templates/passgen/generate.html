@@ -1,0 +1,31 @@
+{% extends 'passgen/base.html' %}
+
+{% block content %}
+    <form method='GET'>
+        <br>
+        <label>Letters: </label>
+        <input type="checkbox" name="letters" value="clicked"><br>
+
+        <label>numbers: </label>
+        <input type="checkbox" name="numbers" value="clicked"><br>
+
+        <label>symbols: </label>
+        <input type="checkbox" name="symbols" value="clicked"><br>
+
+        <label>Password length: </label>
+        <input type="number" name="passLength" required><br><br>
+        
+        <input type="submit" name="generate" value="Generate password!"></button>
+    </form>
+    <br>
+
+    <form method='POST'>
+        {% csrf_token %}
+        <input type="submit" name="store" value="store"></button>
+    </form>
+    {% if generatedPass %}
+        <br>
+        <strong>Generated password: </strong>"{{ generatedPass }}"
+    {% endif %}
+
+{% endblock %}

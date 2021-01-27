@@ -1,0 +1,15 @@
+{% extends 'passgen/base.html' %}
+
+{% block content %}
+    <h2>{{ user.username }}</h2>
+
+    {% if stored_passwords %}
+
+        <h3>Your stored passwords: </h3>
+        {% for stored_password in stored_passwords %}
+        <li>{{ stored_password }}</li>
+        {% endfor %}
+    {% else %}
+        <h3>No stored passwords yet!</h3>
+    {% endif %}
+{% endblock %}
